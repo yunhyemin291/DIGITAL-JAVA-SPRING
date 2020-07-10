@@ -24,5 +24,7 @@
 	      <td>${board.views}</td>         
 	    </tr>
     </c:forEach>
+    
   </tbody>
 </table>
+<a href="<%=request.getContextPath()%>/board/register"><button>글쓰기</button></a>

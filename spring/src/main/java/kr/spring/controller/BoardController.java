@@ -1,7 +1,6 @@
 package kr.spring.controller;
 
 import java.util.ArrayList;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +56,33 @@ public class BoardController {
 		logger.info("URI : /board/register:POST");		
 		mv.setViewName("redirect:/board/list");	
 		boardService.registerBoard(board);
+		return mv;
+	}
+	@RequestMapping(value = "/board/modify", method = RequestMethod.GET)
+	public ModelAndView boardmodifyGet(ModelAndView mv,Integer num) {
+		logger.info("URI : /board/modify:GET");		
+		mv.setViewName("/board/modify");
+		System.out.println(num);
+		BoardVo board = null;
+		if(num!=null)
+			board = boardService.getBoard(num);
+		mv.addObject("board",board);
+		return mv;
+	}
+	@RequestMapping(value = "/board/modify", method = RequestMethod.POST)
+	public ModelAndView boardmodifyPost(ModelAndView mv,BoardVo board) {
+		logger.info("URI : /board/modify:POST");		
+		mv.setViewName("redirect:/board/list");
+		board.setIsDel('N');
+		boardService.updateBoard(board);		
+		return mv;
+	}
+	@RequestMapping(value = "/board/delete", method = RequestMethod.GET)
+	public ModelAndView boardDeleteGet(ModelAndView mv,Integer num) {
+		logger.info("URI : /board/delete:GET");		
+		mv.setViewName("redirect:/board/list");
+		boardService.deleteBoard(num);
+		
 		return mv;
 	}
 
