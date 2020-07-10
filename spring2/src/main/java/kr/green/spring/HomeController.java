@@ -1,5 +1,7 @@
 package kr.green.spring;
 
+import java.util.ArrayList;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.green.spring.service.UserService;
+import kr.green.spring.vo.BoardVo;
 
 /**
  * Handles requests for the application home page.
@@ -20,11 +23,10 @@ public class HomeController {
 	
 	@Autowired
     UserService userService;
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView openTileView(ModelAndView mv) throws Exception{
+	public ModelAndView home(ModelAndView mv) {
+		logger.info("URI : /");
 		mv.setViewName("/main/home");
 	    
 	    return mv;
@@ -40,6 +42,15 @@ public class HomeController {
         logger.info("전송된 비밀번호: "+pw);
         String userPw=userService.getPw(id);
         logger.info("조회된 비밀번호: "+userPw);
+        return mv;
+    }
+    @RequestMapping(value="/board/list")
+    public ModelAndView main(ModelAndView mv){
+        logger.info("URI : board/list");
+    	mv.setViewName("/board/list");
+        ArrayList<BoardVo> list;
+        list = boardService.getBoardList();
+		mv.addObject("list",list);
         return mv;
     }
 
