@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.green.spring.dao.MemberDAO">
-  <select id="getEmail" resultType="String">
-    select email from member where id = #{id}
+<mapper namespace="kr.green.spring.dao.UserDAO">
+  <select id="getUser" resultType="kr.green.spring.vo.UserVo">
+    select * from user where id = #{id}
   </select>
 </mapper>

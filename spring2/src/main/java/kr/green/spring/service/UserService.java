@@ -1,6 +1,10 @@
 package kr.green.spring.service;
- 
+
+import kr.green.spring.vo.UserVo;
+
 public interface UserService {
-    public String getPw(String id);
+    UserVo getUser(String string);
+
+	UserVo isUser(UserVo inputUser);
 }
 
