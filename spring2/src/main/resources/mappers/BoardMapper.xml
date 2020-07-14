@@ -9,4 +9,26 @@
   		where isDel='N' 
   		order by num desc limit 0,10;
   </select>
+  <select id="getBoard" resultType="kr.green.spring.vo.BoardVo">
+  	select *
+  		from board
+  		where num=#{num}
+  </select>
+  <insert id="insertBoard">
+  	insert into 
+  		board(writer, title, content) 
+  		values (#{board.writer},#{board.title},#{board.content});
+  </insert>
+  <update id="updateBoard">
+  	update board 
+  		set 
+  			title=#{board.title},
+  			content=#{board.content},
+  			isDel=#{board.isDel},
+  			delDate=#{board.delDate},
+  			views = #{board.views} 
+  		where 
+  			num=#{board.num};
+  </update>
+  
 </mapper>

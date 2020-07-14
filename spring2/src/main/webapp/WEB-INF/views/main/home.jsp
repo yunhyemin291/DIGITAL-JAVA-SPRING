@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div style="height: 800px">
-		<h1>
+		<h1 class="title">
 			로그인
 		</h1>
 		<form action="<%=request.getContextPath()%>/" method="post">

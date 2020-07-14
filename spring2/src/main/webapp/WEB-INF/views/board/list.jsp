@@ -2,13 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<html>
-<head>
-<title>title</title>
-</head>
-<body>
+<h1 class="title">게시판</h1>
 
-</body>
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -25,7 +20,7 @@
 			<tr>
 				<td>${board.num }</td>
 				<td>
-					<a href="<%=request.getContextPath() %>/board/detail/">
+					<a href="<%=request.getContextPath() %>/board/detail?num=${board.num}">
 						${board.title }
 					</a>						
 				</td>
@@ -43,4 +38,4 @@
   </tbody>
 </table>
 	
-</html>
+
