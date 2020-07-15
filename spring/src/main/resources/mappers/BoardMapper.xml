@@ -4,7 +4,11 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.spring.controller.dao.BoardDao">
   <select id="getBoardList" resultType="kr.spring.controller.vo.BoardVo">
-    select * from board where isDel='N';
+    select * 
+    	from board 
+    	where isDel='N'
+    	order by num desc
+    	limit #{cri.pageStart},#{cri.perPageNum};
   </select>
   <select id="getBoard" resultType="kr.spring.controller.vo.BoardVo">
   	select * from board where num = #{num}
@@ -31,4 +35,9 @@
   			num=#{board.num}
   </update>
   
+  <select id="getTotalCount" resultType="int">
+    select count(*) 
+    	from board 
+    	where isDel='N';
+  </select>
 </mapper>
