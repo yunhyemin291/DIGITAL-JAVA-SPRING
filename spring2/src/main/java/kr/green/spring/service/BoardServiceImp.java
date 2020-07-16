@@ -5,6 +5,8 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.green.spring.Criteria.Criteria;
+import kr.green.spring.Criteria.PageMaker;
 import kr.green.spring.dao.BoardDAO;
 import kr.green.spring.vo.BoardVo;
  
@@ -14,9 +16,9 @@ public class BoardServiceImp implements BoardService {
     private BoardDAO boardDao;
 
 	@Override
-	public ArrayList<BoardVo> getBoardList() {
+	public ArrayList<BoardVo> getBoardList(Criteria cri) {
 		
-		return boardDao.getBoardList();
+		return boardDao.getBoardList(cri);
 	}
 
 	@Override
@@ -61,7 +63,18 @@ public class BoardServiceImp implements BoardService {
 		}
 		 
 	}
-    
+
+	
+
+	@Override
+	public PageMaker getPageMaker(Criteria cri) {
+		PageMaker pm=new PageMaker();
+		int totalCount=boardDao.getTotalCount(cri);
+		pm.setCriteria(cri);
+		pm.setTotalCount(totalCount);
+		return pm;
+	}
+
    
 }
  

@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.green.spring.Criteria.Criteria;
+import kr.green.spring.Criteria.PageMaker;
 import kr.green.spring.service.BoardService;
 import kr.green.spring.vo.BoardVo;
 
@@ -20,12 +22,16 @@ public class BoardController {
 	BoardService boardService;
 	
 	@RequestMapping(value = "/board/list", method = RequestMethod.GET)
-    public ModelAndView boardListGet(ModelAndView mv){
-    	mv.setViewName("/board/list");
-    	ArrayList<BoardVo> list=boardService.getBoardList();
+    public ModelAndView boardListGet(ModelAndView mv,Criteria cri){
+		mv.setViewName("/board/list");
+	
+		PageMaker pm=boardService.getPageMaker(cri);
+		
+    	ArrayList<BoardVo> list=boardService.getBoardList(cri);
     	
     	mv.addObject("list",list);
-    	
+    	mv.addObject("pm",pm);
+    	System.out.println(pm);
         return mv;
     }
 	

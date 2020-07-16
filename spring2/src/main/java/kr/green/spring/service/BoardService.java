@@ -2,12 +2,13 @@ package kr.green.spring.service;
 
 import java.util.ArrayList;
 
+import kr.green.spring.Criteria.Criteria;
+import kr.green.spring.Criteria.PageMaker;
 import kr.green.spring.vo.BoardVo;
 
 public interface BoardService {
 
-	ArrayList<BoardVo> getBoardList();
-
+	
 	BoardVo getBoard(Integer num);
 
 	void insertBoard(BoardVo board);
@@ -18,5 +19,9 @@ public interface BoardService {
 
 	void deleteBoard(Integer num);
 	
+	ArrayList<BoardVo> getBoardList(Criteria cri);
+	
+	
 
+	PageMaker getPageMaker(Criteria cri);
 }

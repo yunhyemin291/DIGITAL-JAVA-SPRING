@@ -8,7 +8,7 @@ public class PageMaker {
 	private boolean prev;
 	private boolean next;
 	//페이지네이션에서 보여주는 페이지의 갯수
-	private int displayPageNum=10;
+	private int displayPageNum=3;
 	//현재 페이지 정보
 	private Criteria criteria;
 	public void calcData() {
@@ -72,6 +72,9 @@ public class PageMaker {
 	}
 	public void setCriteria(Criteria criteria) {
 		this.criteria = criteria;
+	}
+	public int getLastEndPage() {
+		return (int)(Math.ceil(totalCount/(double)criteria.getPerPageNum()));
 	}
 	@Override
 	public String toString() {

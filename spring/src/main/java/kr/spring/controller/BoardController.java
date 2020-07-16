@@ -28,15 +28,14 @@ public class BoardController {
 		logger.info("URI : /board/list");		
 		mv.setViewName("/board/list");	
 		PageMaker pm=boardService.getPageMaker(cri);
-		ArrayList<BoardVo> list;
-		list = boardService.getBoardList(cri);
+		ArrayList<BoardVo> list = boardService.getBoardList(cri);		
 		mv.addObject("list",list);
 		mv.addObject("pm",pm);
-		System.out.println(pm);
+		System.out.println(cri);
 		return mv;
 	}
 	@RequestMapping(value = "/board/detail", method = RequestMethod.GET)
-	public ModelAndView boardDetailGet(ModelAndView mv,Integer num) {
+	public ModelAndView boardDetailGet(ModelAndView mv,Integer num,Criteria cri) {
 		logger.info("URI : /board/detail");		
 		mv.setViewName("/board/detail");
 		BoardVo board = null;
@@ -48,6 +47,7 @@ public class BoardController {
 				board.setViews(board.getViews()+1);
 			}
 		}
+		mv.addObject("cri",cri);
 		return mv;
 	}
 	@RequestMapping(value = "/board/register", method = RequestMethod.GET)

@@ -14,6 +14,6 @@ public interface BoardDao {
 		void increaseViews(@Param("num")Integer num);
 		void registerBoard(BoardVo board);
 		void updateBoard(@Param("board")BoardVo board);
-		int getTotalCount();
+		int getTotalCount(@Param("cri")Criteria cri);
 
 }
