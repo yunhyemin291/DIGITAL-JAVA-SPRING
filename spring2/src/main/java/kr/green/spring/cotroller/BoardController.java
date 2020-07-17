@@ -23,23 +23,20 @@ public class BoardController {
 	
 	@RequestMapping(value = "/board/list", method = RequestMethod.GET)
     public ModelAndView boardListGet(ModelAndView mv,Criteria cri){
-		mv.setViewName("/board/list");
-	
-		PageMaker pm=boardService.getPageMaker(cri);
-		
-    	ArrayList<BoardVo> list=boardService.getBoardList(cri);
-    	
+		mv.setViewName("/board/list");	
+    	ArrayList<BoardVo> list=boardService.getBoardList(cri);    	
     	mv.addObject("list",list);
+    	PageMaker pm=boardService.getPageMakerByBoard(cri);
     	mv.addObject("pm",pm);
-    	System.out.println(pm);
         return mv;
     }
 	
 	@RequestMapping(value = "/board/detail", method = RequestMethod.GET)
-    public ModelAndView boardDetailGet(ModelAndView mv,Integer num){
+    public ModelAndView boardDetailGet(ModelAndView mv,Integer num,Criteria cri){
     	mv.setViewName("/board/detail");
     	BoardVo board=boardService.view(num);
     	mv.addObject("board",board);
+    	mv.addObject("cri",cri);
     	
         return mv;
     }
@@ -77,5 +74,20 @@ public class BoardController {
     	boardService.deleteBoard(num);
         return mv;
     }
+	@RequestMapping(value = "/signup", method = RequestMethod.GET)
+    public ModelAndView signupGet(ModelAndView mv){
+    	mv.setViewName("/main/signup");    	
+        return mv;
+    }
+//	@RequestMapping(value = "/signup", method = RequestMethod.POST)
+//    public ModelAndView signupPost(ModelAndView mv,UserVo user){
+//		if(userService.signip(user)) {
+//			mv.setViewName("redirect:/");
+//		}else {
+//			mv.setViewName("redirect:/main/signup");
+//			mv.addObject("user",user);
+//		} 	
+//        return mv;
+//    }
 
 }

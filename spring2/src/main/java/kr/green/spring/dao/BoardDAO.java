@@ -18,7 +18,8 @@ public interface BoardDAO {
 
 	void updateBoard(@Param("board")BoardVo board);
 
-	public int getTotalCount(Criteria cri);
+	public int getTotalCountByBoard(@Param("cri")Criteria cri);
+
 
 }
 

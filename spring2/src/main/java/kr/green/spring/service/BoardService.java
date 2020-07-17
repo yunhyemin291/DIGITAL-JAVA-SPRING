@@ -8,6 +8,7 @@ import kr.green.spring.vo.BoardVo;
 
 public interface BoardService {
 
+	ArrayList<BoardVo> getBoardList(Criteria cri);
 	
 	BoardVo getBoard(Integer num);
 
@@ -19,9 +20,7 @@ public interface BoardService {
 
 	void deleteBoard(Integer num);
 	
-	ArrayList<BoardVo> getBoardList(Criteria cri);
-	
 	
 
-	PageMaker getPageMaker(Criteria cri);
+	PageMaker getPageMakerByBoard(Criteria cri);
 }

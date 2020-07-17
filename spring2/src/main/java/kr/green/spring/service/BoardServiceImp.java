@@ -64,14 +64,12 @@ public class BoardServiceImp implements BoardService {
 		 
 	}
 
-	
 
 	@Override
-	public PageMaker getPageMaker(Criteria cri) {
+	public PageMaker getPageMakerByBoard(Criteria cri) {
 		PageMaker pm=new PageMaker();
-		int totalCount=boardDao.getTotalCount(cri);
-		pm.setCriteria(cri);
-		pm.setTotalCount(totalCount);
+		pm.setCri(cri);
+		pm.setTotalCount(boardDao.getTotalCountByBoard(cri));
 		return pm;
 	}
 

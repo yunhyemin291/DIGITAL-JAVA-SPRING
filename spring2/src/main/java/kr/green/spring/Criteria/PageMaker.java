@@ -6,18 +6,18 @@ public class PageMaker {
 	private int endPage;
 	private boolean prev;
 	private boolean next;
-	private int displayPageNum;
-	private Criteria criteria;
+	private int displayPageNum=10;
+	private Criteria cri;
 	
 	public void calcData() {
-		endPage=(int)(Math.ceil(criteria.getPage()/(double) displayPageNum)*displayPageNum);
+		endPage=(int)(Math.ceil(cri.getPage()/(double) displayPageNum)*displayPageNum);
 		startPage=(endPage-displayPageNum)+1;
-		int tempEndPage=(int)(Math.ceil(totalCount/(double)criteria.getPerPageNum()));
+		int tempEndPage=(int)(Math.ceil(totalCount/(double)cri.getPerPageNum()));
 		if(endPage>tempEndPage) {
 			endPage=tempEndPage;
 		}
-		prev=startPage==1?false:true;
-		next=endPage*criteria.getPerPageNum()>=totalCount?false:true;
+		prev=startPage == 1 ? false : true;
+		next=endPage*cri.getPerPageNum() >= totalCount ? false : true;
 	}
 
 	public int getTotalCount() {
@@ -69,18 +69,18 @@ public class PageMaker {
 		this.displayPageNum = displayPageNum;
 	}
 
-	public Criteria getCriteria() {
-		return criteria;
+	public Criteria getCri() {
+		return cri;
 	}
 
-	public void setCriteria(Criteria criteria) {
-		this.criteria = criteria;
+	public void setCri(Criteria cri) {
+		this.cri = cri;
 	}
 
 	@Override
 	public String toString() {
 		return "PageMaker [totalCount=" + totalCount + ", startPage=" + startPage + ", endPage=" + endPage + ", prev="
-				+ prev + ", next=" + next + ", displayPageNum=" + displayPageNum + ", criteria=" + criteria + "]";
+				+ prev + ", next=" + next + ", displayPageNum=" + displayPageNum + ", criteria=" + cri + "]";
 	}
 	
 }
