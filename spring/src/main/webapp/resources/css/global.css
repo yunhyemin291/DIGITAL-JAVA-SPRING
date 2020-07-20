@@ -1,12 +1,6 @@
 @charset "UTF-8";
 
-.container.body{
-	min-height: 800px;
-	margin-top:30px;
-}
-i{
-	line-height:20px;
-}
+
 *{
    margin: 0;
    padding: 0;
@@ -14,11 +8,11 @@ i{
 body{
     background-color: rgb(245,246,247);
 }
-.container{
+.container-body{
     width: 500px;
     margin: 0 auto;            
 }
-a{
+.container-body a{
     text-decoration: none;
     color: black;
 }
@@ -149,4 +143,12 @@ a{
     font-size: 24px;
     border: none;
     margin-bottom: 100px;
+}
+.container.body{
+	min-height: 800px;
+	margin-top:30px;
+}
+.page-link>i{
+	
+	line-height:20px !important;
 }

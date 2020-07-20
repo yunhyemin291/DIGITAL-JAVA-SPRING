@@ -1,5 +1,7 @@
 package kr.spring.controller.service;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -27,15 +29,32 @@ public class UserServiceImp implements UserService {
 			return false;
 		if(user.getGender()==null)
 			user.setGender("male");
-		if(!user.getGender().equals("female")) return false;
+		if(!user.getGender().equals("male")&&!user.getGender().equals("female")) return false;
+		//아이디가 있는 경우
 		if(userDao.getUser(user.getId())!=null)
 			return false;
+		//비밀번호 암호화
 		String encodePw=passwordEncoder.encode(user.getPw());
 		user.setPw(encodePw);
 		
+		//회원가입 진행
 		userDao.insertUser(user);
 		
 		return true;
+	}
+
+	@Override
+	public UserVo getUser(HttpServletRequest request) {
+		
+		return (UserVo)request.getSession().getAttribute("user");
+	}
+
+	@Override
+	public UserVo isSignin(UserVo user) {
+		UserVo dbUser = userDao.getUser(user.getId());
+		if(dbUser!=null&&passwordEncoder.matches(user.getPw(), dbUser.getPw()))
+			return dbUser;
+		return null;
 	}
 
 	

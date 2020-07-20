@@ -4,7 +4,7 @@
     
 
 <form method="post" action="<%=request.getContextPath()%>/signup">
-    <div class="container">
+    <div class="container-body">
        
         <div class="container-id">
             <div class="text-id">아이디</div>
