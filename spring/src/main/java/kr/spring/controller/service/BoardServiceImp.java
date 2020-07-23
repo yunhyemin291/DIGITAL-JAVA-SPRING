@@ -79,15 +79,6 @@ public class BoardServiceImp implements BoardService {
 		return pm;
 	}
 
-	@Override
-	public int updateLike(String num, String id) {
-		boardDao.insertLike(Integer.parseInt(num),id);
-		BoardVo board=boardDao.getBoard(Integer.parseInt(num));
-		board.setLike(board.getLike()+1);
-		boardDao.updateBoard(board);
-		return board.getLike();
-	}
-
 	
 
 }

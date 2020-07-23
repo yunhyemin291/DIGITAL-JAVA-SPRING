@@ -15,6 +15,5 @@ public interface BoardDao {
 		void registerBoard(BoardVo board);
 		void updateBoard(@Param("board")BoardVo board);
 		int getTotalCount(@Param("cri")Criteria cri);
-		void insertLike(@Param("boNum")int parseInt, @Param("id")String id);
 
 }

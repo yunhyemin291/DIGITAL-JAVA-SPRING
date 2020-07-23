@@ -152,15 +152,3 @@ body{
 	
 	line-height:20px !important;
 }
-.dup-fail-msg,
-.dup-suc-msg{
-	color:red;
-	line-height:16px;
-	margin-bottom:10px;
-}
-.dup-suc-msg{
-	color:green;
-}
-.display-none{
-	display:none;
-}

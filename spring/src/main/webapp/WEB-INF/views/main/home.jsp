@@ -15,20 +15,3 @@
 		<button class="btn btn-success col-12">로그인</button>
 	</form>
 </c:if> 
-<button id="ajax">버튼</button>
-<script type="text/javascript">
-	$(function(){
-		 $.ajax({
-	        async:true,
-	        type:'POST',
-	        data:JSON.stringify({"id":"123","num":"456"}),
-	        url:"<%=request.getContextPath()%>/test2",
-	        dataType:"json",
-	        contentType:"application/json; charset=UTF-8",
-	        success : function(data){
-	        	console.log(data['res']);
-	        }
-	    });
-	})
-</script>
-
