@@ -27,4 +27,6 @@ public interface BoardService {
 
 	void updateBoard(BoardVo board, UserVo user);
 
+	int updateLike(String num, String id);
+
 }

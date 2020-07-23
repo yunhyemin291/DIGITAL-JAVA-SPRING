@@ -1,6 +1,7 @@
 package kr.spring.controller;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -8,8 +9,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.spring.controller.service.UserService;
@@ -78,8 +81,45 @@ public class HomeController {
 		request.getSession().removeAttribute("user");
 		return mv;
 	}
-	
-	
+	@RequestMapping(value ="/idCheck")
+	@ResponseBody
+	public Map<Object, Object> idcheck(@RequestBody String id){
+	    Map<Object, Object> map = new HashMap<Object, Object>();
+	    UserVo user=userService.getUser(id);
+	    boolean check = user==null ? true:false;
+	    map.put("check", check);
+	    
+	    return map;
+	}
+	@RequestMapping(value ="/test2")
+	@ResponseBody
+	public Map<Object, Object> test2(@RequestBody TestVo test){
+	    Map<Object, Object> map = new HashMap<Object, Object>();
+	    System.out.println(test);
+	    map.put("res","success!!");
+	    return map;
+	}
+	class TestVo{
+		private String id;
+		private int num;
+		public String getId() {
+			return id;
+		}
+		public void setId(String id) {
+			this.id = id;
+		}
+		public int getNum() {
+			return num;
+		}
+		public void setNum(int num) {
+			this.num = num;
+		}
+		@Override
+		public String toString() {
+			return "TestVo [id=" + id + ", num=" + num + "]";
+		}
+		
+	}
 	
 	
 }
