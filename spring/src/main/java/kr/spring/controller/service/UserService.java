@@ -13,4 +13,8 @@ public interface UserService {
 	UserVo getUser(HttpServletRequest request);
 
 	UserVo isSignin(UserVo user);
+
+	Object getUser(String id);
+
+	void newPw(String id, String newPw);
 }

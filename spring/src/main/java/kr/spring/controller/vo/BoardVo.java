@@ -13,6 +13,15 @@ public class BoardVo {
 	private char isDel;
 	private int views;
 	private Date delDate;
+	private String file;
+	
+	
+	public String getFile() {
+		return file;
+	}
+	public void setFile(String file) {
+		this.file = file;
+	}
 	public int getNum() {
 		return num;
 	}
@@ -81,6 +90,7 @@ public class BoardVo {
 				+ ", registerDate=" + registerDate + ", isDel=" + isDel + ", views=" + views + ", delDate=" + delDate
 				+ "]";
 	}
+	
 	
 
 }

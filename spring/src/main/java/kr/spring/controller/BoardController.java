@@ -10,12 +10,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.spring.controller.criteria.Criteria;
 import kr.spring.controller.criteria.PageMaker;
 import kr.spring.controller.service.BoardService;
 import kr.spring.controller.service.UserService;
+import kr.spring.controller.utils.UploadFileUtils;
 import kr.spring.controller.vo.BoardVo;
 import kr.spring.controller.vo.UserVo;
 
@@ -28,6 +30,8 @@ public class BoardController {
 	private BoardService boardService;
 	@Autowired
 	private UserService userService;
+	
+	private String uploadPath="D:\\git\\uploadfiles";
 	
 	@RequestMapping(value = "/board/list", method = RequestMethod.GET)
 	public ModelAndView home(ModelAndView mv,Criteria cri) {
@@ -57,6 +61,7 @@ public class BoardController {
 		mv.addObject("cri",cri);
 		return mv;
 	}
+	
 	@RequestMapping(value = "/board/register", method = RequestMethod.GET)
 	public ModelAndView boardregisterGet(ModelAndView mv) {
 		logger.info("URI : /board/register:GET");		
@@ -64,10 +69,15 @@ public class BoardController {
 		
 		return mv;
 	}
+	
+	
 	@RequestMapping(value = "/board/register", method = RequestMethod.POST)
-	public ModelAndView boardregisterPost(ModelAndView mv,BoardVo board,HttpServletRequest request) {
+	public ModelAndView boardregisterPost(ModelAndView mv,BoardVo board,HttpServletRequest request,MultipartFile file2) throws Exception {
 		logger.info("URI : /board/register:POST");		
 		mv.setViewName("redirect:/board/list");	
+		
+		String fileName = UploadFileUtils.uploadFile(uploadPath, file2.getOriginalFilename(),file2.getBytes());
+		board.setFile(fileName);
 		boardService.registerBoard(board,request);
 		return mv;
 	}

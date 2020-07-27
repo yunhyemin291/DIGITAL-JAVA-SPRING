@@ -57,6 +57,23 @@ public class UserServiceImp implements UserService {
 		return null;
 	}
 
+	@Override
+	public UserVo getUser(String id) {
+		// TODO Auto-generated method stub
+		return userDao.getUser(id);
+	}
+	
+
+	@Override
+	public void newPw(String id, String newPw) {
+		UserVo user=getUser(id.trim());
+		String encodePw=passwordEncoder.encode(newPw);
+		if(user==null)	return;
+		user.setPw(encodePw);
+		userDao.updatePw(user);
+		
+	}
+
 	
 	
 
