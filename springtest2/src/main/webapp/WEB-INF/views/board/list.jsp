@@ -29,4 +29,5 @@
     	</c:forEach>
     </tbody>
   </table>
+  <a href="<%=request.getContextPath() %>/board/register"><button type="button" class="btn btn-light">글쓰기</button></a>
 </div>

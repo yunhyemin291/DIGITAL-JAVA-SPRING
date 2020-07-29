@@ -2,37 +2,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <form>
-	<div class="form-group">
-		<label>게시글 번호</label>
-		<input type="text" class="form-control" name="num" value="${board.num}" readonly>
-	</div>
-	<div class="form-group">
-		<label>게시글 제목</label>
-		<input type="text" class="form-control" name="title" value="${board.title}" readonly>
-	</div>
-	<div class="form-group">
-		<label>작성자</label>
-		<input type="text" class="form-control" name="writer" value="${board.writer}" readonly>
-	</div>
-	<div class="form-group">
-		<label>작성일</label>
-		<input type="text" class="form-control" name="registerDate" value="${board.registered}" readonly>
-	</div>
-	<div class="form-group">
-		<label>조회수</label>
-		<input type="text" class="form-control" name="views" value="${board.views}" readonly>
-	</div>
 	
-	<div class="form-group">
-		<label>내용</label>
-		<textarea class="form-control" rows="5" name="contents" readonly>${board.contents}</textarea>
-	</div>
-	
-</form>
-<div class="col-sm-8">
 	<h2>${board.title}</h2>
-	<h5>${board.registered}</h5>
-	
+	<h5>${board.registered}</h5><span class="info">조회수 ${board.views}</span>
+	<div class="line"></div>
 	<p>${board.contents}</p>
 	<br>
-</div>
+	
+</form>
+<a href="<%=request.getContextPath() %>/board/register"><button type="button" class="btn btn-light">글쓰기</button></a>
+<a href="<%=request.getContextPath() %>/board/list"><button type="button" class="btn btn-light">목록</button></a>
+<a href="<%=request.getContextPath() %>/board/modify?num=${board.num}"><button type="button" class="btn btn-light">수정</button></a>
+<a href="<%=request.getContextPath() %>/board/delete?num=${board.num}"><button type="button" class="btn btn-light">삭제</button></a>

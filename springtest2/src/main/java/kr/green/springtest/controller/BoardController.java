@@ -40,5 +40,47 @@ public class BoardController {
 		}
 		return mv;
 	}
+	@RequestMapping(value = "/board/register", method = RequestMethod.GET)
+	public ModelAndView boardregisterGet(ModelAndView mv) {
+		logger.info("URI:/board/register:GET");
+		mv.setViewName("/board/register");
+
+		return mv;
+	}
+	@RequestMapping(value = "/board/register", method = RequestMethod.POST)
+	public ModelAndView boardregisterPost(ModelAndView mv,BoardVo board) {
+		logger.info("URI:/board/register:POST");
+		mv.setViewName("redirect:/board/list");
+		boardService.registerBoard(board);
+		return mv;
+	}
+	@RequestMapping(value = "/board/modify", method = RequestMethod.GET)
+	public ModelAndView boardModifyGet(ModelAndView mv,Integer num) {
+		logger.info("URI:/board/modify:GET");
+		mv.setViewName("/board/modify");
+		System.out.println(num);
+		BoardVo board=null;
+		if(num != null) {
+			board = boardService.getBoard(num);
+		}
+		mv.addObject("board",board);
+		return mv;
+	}
+	@RequestMapping(value = "/board/modify", method = RequestMethod.POST)
+	public ModelAndView boardModifyPost(ModelAndView mv,BoardVo board) {
+		logger.info("URI:/board/modify:Post");
+		mv.setViewName("redirect:/board/list");
+		boardService.updateBoard(board);
+		return mv;
+	}
+	
+	@RequestMapping(value = "/board/delete", method = RequestMethod.GET)
+	public ModelAndView boardDeletePost(ModelAndView mv,Integer num) {
+		logger.info("URI:/board/delete:Get");
+		mv.setViewName("redirect:/board/list");
+		boardService.deleteBoard(num);
+
+		return mv;
+	}
 
 }

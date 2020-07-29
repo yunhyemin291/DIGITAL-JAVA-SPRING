@@ -26,4 +26,29 @@ public class BoardServiceImp implements BoardService {
 		return boardDao.getBoard(num);
 	}
 
+	@Override
+	public void registerBoard(BoardVo board) {
+		boardDao.registerBoard(board);
+		
+	}
+
+	@Override
+	public void updateBoard(BoardVo board) {
+		board.setValid('I');
+		boardDao.updateBoard(board);
+		
+	}
+
+	@Override
+	public void deleteBoard(Integer num) {
+		if(num!=null) {
+			BoardVo board=boardDao.getBoard(num);
+			if(board!=null) {
+				board.setValid('D');
+				boardDao.updateBoard(board);
+			}
+		}
+		
+	}
+
 }
