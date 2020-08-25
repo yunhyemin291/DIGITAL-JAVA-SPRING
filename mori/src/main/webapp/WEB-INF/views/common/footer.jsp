@@ -1,7 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<div class="jumbotron jumbotron-fluid mb-0">
-  <div class="container">
-    <h1>푸터</h1>      
-  </div>
-</div>
+<div class="hero-foot">
+   <nav class="tabs">
+     <div class="container">
+       <ul>
+         <li class="is-active"><a>Overview</a></li>
+         <li><a>Modifiers</a></li>
+         <li><a>Grid</a></li>
+         <li><a>Elements</a></li>
+         <li><a>Components</a></li>
+         <li><a>Layout</a></li>
+       </ul>
+     </div>
+   </nav>
+ </div>

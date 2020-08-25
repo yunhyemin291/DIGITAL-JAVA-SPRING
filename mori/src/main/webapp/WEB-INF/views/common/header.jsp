@@ -1,23 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-	<div class="container">
-	  	<a class="navbar-brand" href="#">Navbar</a>
-	  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-	    	<span class="navbar-toggler-icon"></span>
-	  	</button>
-	  	<div class="collapse navbar-collapse" id="collapsibleNavbar">
-	    	<ul class="navbar-nav">
-		      	<li class="nav-item">
-		        	<a class="nav-link" href="#">Link</a>
-		      	</li>
-		      	<li class="nav-item">
-		        	<a class="nav-link" href="#">Link</a>
-		      	</li>
-		      	<li class="nav-item">
-		        	<a class="nav-link" href="#">Link</a>
-		      	</li>    
-	    	</ul>
-		</div> 
-	</div> 
-</nav>
+<div class="hero-head">
+          <nav class="navbar">
+            <div class="container">
+              <div class="navbar-brand">
+                <a class="navbar-item">
+                  <img src="https://i.imgur.com/zNjqRUz.gif" alt="Logo">
+                </a>
+                <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+              </div>
+              <div id="navbarMenuHeroA" class="navbar-menu">
+                <div class="navbar-end">
+                  <a class="navbar-item is-active">
+                    Home
+                  </a>
+                  <a class="navbar-item">
+                    review
+                  </a>
+                  <a class="navbar-item">
+                    recommend
+                  </a>
+                  <span class="navbar-item">
+                    <a class="button is-primary is-inverted">
+                      <!-- <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span> -->
+                      <span>Log In</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
