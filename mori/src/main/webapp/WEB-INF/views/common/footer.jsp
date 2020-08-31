@@ -1,16 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<div class="hero-foot">
-   <nav class="tabs">
-     <div class="container">
-       <ul>
-         <li class="is-active"><a>Overview</a></li>
-         <li><a>Modifiers</a></li>
-         <li><a>Grid</a></li>
-         <li><a>Elements</a></li>
-         <li><a>Components</a></li>
-         <li><a>Layout</a></li>
-       </ul>
-     </div>
-   </nav>
- </div>
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+      <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+      is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+    </p>
+  </div>
+</footer>
+ 

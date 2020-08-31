@@ -26,4 +26,16 @@ public class HomeController {
 	    mv.addObject("setHeader", "타일즈");
 	    return mv;
 	}
+	@RequestMapping(value= {"/login"})
+	public ModelAndView login(ModelAndView mv) throws Exception{
+	    mv.setViewName("/login");
+	    mv.addObject("setHeader", "타일즈");
+	    return mv;
+	}
+	@RequestMapping(value= {"/signup"})
+	public ModelAndView signup(ModelAndView mv) throws Exception{
+	    mv.setViewName("/signup");
+	    mv.addObject("setHeader", "타일즈");
+	    return mv;
+	}
 }

@@ -12,10 +12,11 @@
 	<section class="hero is-primary is-large">
 	    <tiles:insertAttribute name="header"/>
 	
-    <div class="container">        
-		<tiles:insertAttribute name="body" />
-	</div>                                                  
+	    <div class="container">        
+			<tiles:insertAttribute name="body" />
+		</div> 
+	</section>                                                  
 	<tiles:insertAttribute name="footer" />
-	</section>    
+	   
 </body>
 </html>

@@ -25,10 +25,8 @@
                     recommend
                   </a>
                   <span class="navbar-item">
-                    <a class="button is-primary is-inverted">
-                      <!-- <span class="icon">
-                        <i class="fab fa-github"></i>
-                      </span> -->
+                    <a class="button is-primary is-inverted" href="<%=request.getContextPath()%>/login">
+                 
                       <span>Log In</span>
                     </a>
                   </span>
