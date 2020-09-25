@@ -3,3 +3,135 @@
 .hero.is-primary{
 	width:100vw;
 }
+.is-ancestor{   
+   margin-top: 40px !important;
+   
+}
+.is-vertical{
+    margin: 0 auto;
+}
+.navbar-brand>.field{
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 400px;
+}
+.control>.input{
+    height: 40px;
+    border: 3px solid #ffffff;
+    width: 90%;
+    font-size: 15px;
+}
+.fas.fa-search{
+    width: 10%;
+    font-size: 30px;
+    color: #ffffff;
+    padding-top: 5px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+* {
+  box-sizing: border-box;
+}
+.container{
+  max-width: 1400px;
+}
+.tile.is-ancestor{
+  margin:0 auto;
+  
+}
+.heading {
+  font-size: 25px;
+  margin-right: 25px;
+}
+
+.fa {
+  font-size: 25px;
+}
+
+.checked {
+  color: hsl(348, 100%, 61%);
+}
+
+/* Three column layout */
+.side {
+  float: left;
+  width: 15%;
+  margin-top: 10px;
+}
+
+.middle {
+  float: left;
+  width: 70%;
+  margin-top: 10px;
+}
+
+/* Place text to the right */
+.right {
+  text-align: right;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The bar container */
+.bar-container {
+  width: 100%;
+  background-color: #f1f1f1;
+  text-align: center;
+  color: white;
+}
+.content>img{
+  width: 100%;
+  margin: auto;
+}
+.heading.title{
+  margin-top: 10px;
+ 
+}
+
+/* Individual bars */
+.bar-5 {width: 60%; height: 18px; background-color:hsl(171, 100%, 41%);}
+.bar-4 {width: 30%; height: 18px; background-color: hsl(171, 100%, 41%);}
+.bar-3 {width: 10%; height: 18px; background-color: hsl(171, 100%, 41%);}
+.bar-2 {width: 4%; height: 18px; background-color: hsl(171, 100%, 41%);}
+.bar-1 {width: 15%; height: 18px; background-color: hsl(171, 100%, 41%);}
+
+/* Responsive layout - make the columns stack on top of each other instead of next to each other */
+@media (max-width: 400px) {
+.side, .middle {
+  width: 100%;
+}
+/* Hide the right column on small screens */
+.right {
+  display: none;
+}
+.movie-section{
+      margin: 50px 10%;
+
+}
+.movie{
+  width: 100%;
+  background-color: white;
+  color: gray;
+  font-size: 30px;
+  
+}
+h1{
+  font-weight: 550;
+}
+.card{
+  margin-top: 30px;
+  width: 250px;
+  background-color: rgb(230, 230, 230);
+  padding: 5px;
+  border-radius: 4px;
+}
+img{
+  margin-top: 5px;
+ margin-left: 5px;
+}
+}

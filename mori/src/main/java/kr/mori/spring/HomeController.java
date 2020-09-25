@@ -38,4 +38,10 @@ public class HomeController {
 	    mv.addObject("setHeader", "타일즈");
 	    return mv;
 	}
+	@RequestMapping(value= {"/main/movie"})
+	public ModelAndView movie(ModelAndView mv) throws Exception{
+	    mv.setViewName("/main/movie");
+	    mv.addObject("setHeader", "타일즈");
+	    return mv;
+	}
 }

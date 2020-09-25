@@ -9,13 +9,12 @@
 <jsp:include page="/WEB-INF/views/include/head.jsp"></jsp:include>
 </head>
 <body>
-	<section class="hero is-primary is-large">
 	    <tiles:insertAttribute name="header"/>
 	
 	    <div class="container">        
 			<tiles:insertAttribute name="body" />
 		</div> 
-	</section>                                                  
+	                                             
 	<tiles:insertAttribute name="footer" />
 	   
 </body>
