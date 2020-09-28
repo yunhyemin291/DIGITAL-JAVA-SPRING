@@ -20,7 +20,7 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	@RequestMapping(value= {"/main/home","/home.do"})
+	@RequestMapping(value= {"/"})
 	public ModelAndView openTilesView(ModelAndView mv) throws Exception{
 	    mv.setViewName("/main/home");
 	    mv.addObject("setHeader", "타일즈");
@@ -33,7 +33,7 @@ public class HomeController {
 	    return mv;
 	}
 	@RequestMapping(value= {"/signup"})
-	public ModelAndView signup(ModelAndView mv) throws Exception{
+	                            public ModelAndView signup(ModelAndView mv) throws Exception{
 	    mv.setViewName("/signup");
 	    mv.addObject("setHeader", "타일즈");
 	    return mv;
